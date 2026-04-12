@@ -1,5 +1,4 @@
 public class peminjaman {
-
     mahasiswa mhs;
     buku buku;
     int lamaPinjam;

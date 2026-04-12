@@ -74,20 +74,20 @@ public class main {
                     break;
 
                 case 4:
-                // Sorting NIM (Ascending)
-                for (int i = 0; i < pinjam.length - 1; i++) {
-                    for (int j = 0; j < pinjam.length - i - 1; j++) {
+                    // Sorting NIM (Ascending)
+                    for (int i = 0; i < pinjam.length - 1; i++) {
+                        for (int j = 0; j < pinjam.length - i - 1; j++) {
 
-                        int nim1 = Integer.parseInt(pinjam[j].mhs.nim);
-                        int nim2 = Integer.parseInt(pinjam[j + 1].mhs.nim);
+                            int nim1 = Integer.parseInt(pinjam[j].mhs.nim);
+                            int nim2 = Integer.parseInt(pinjam[j + 1].mhs.nim);
 
-                        if (nim1 > nim2) {
-                            peminjaman temp = pinjam[j];
-                            pinjam[j] = pinjam[j + 1];
-                            pinjam[j + 1] = temp;
+                            if (nim1 > nim2) {
+                                peminjaman temp = pinjam[j];
+                                pinjam[j] = pinjam[j + 1];
+                                pinjam[j + 1] = temp;
+                            }
                         }
                     }
-                }
 
                 System.out.print("Masukkan NIM yang dicari: ");
                 int cari = sc.nextInt();
