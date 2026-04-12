@@ -6,7 +6,7 @@ public class mahasiswa {
         this.nama = nama;
         this.prodi = prodi;
     }
-    void tampil() {
+    void tampilMahasiswa() {
         System.out.println(nim + " | " + nama + " | " + prodi);
     }
 }
