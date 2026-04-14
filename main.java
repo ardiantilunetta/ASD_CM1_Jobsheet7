@@ -29,7 +29,8 @@ public class main {
             System.out.println("2. Data Peminjaman");
             System.out.println("3. Sorting Denda Terbesar");
             System.out.println("4. Searching Berdasarkan NIM");
-            System.out.println("5. Keluar");
+            System.out.println("5. Rata-rata lama peminjaman");
+            System.out.println("6. Keluar");
             System.out.print("Pilih : ");
             pilih = sc.nextInt();
 
@@ -74,7 +75,7 @@ public class main {
                     break;
 
                 case 4:
-                    // Sorting NIM (Ascending)
+                    // Bubble Sort - Ascending NIM
                     for (int i = 0; i < pinjam.length - 1; i++) {
                         for (int j = 0; j < pinjam.length - i - 1; j++) {
 
@@ -89,35 +90,45 @@ public class main {
                         }
                     }
 
-                System.out.print("Masukkan NIM yang dicari: ");
-                int cari = sc.nextInt();
+                    System.out.print("Masukkan NIM yang dicari: ");
+                    int cari = sc.nextInt();
 
-                // Binary Search
-                int left = 0;
-                int right = pinjam.length - 1;
-                boolean ketemu = false;
+                    // Binary Search
+                    int left = 0;
+                    int right = pinjam.length - 1;
+                    boolean ketemu = false;
 
-                while (left <= right) {
-                    int mid = (left + right) / 2;
+                    while (left <= right) {
+                        int mid = (left + right) / 2;
 
-                    int nimMid = Integer.parseInt(pinjam[mid].mhs.nim);
+                        int nimMid = Integer.parseInt(pinjam[mid].mhs.nim);
 
-                    if (nimMid == cari) {
-                        pinjam[mid].tampilPeminjaman();
-                        ketemu = true;
-                        break;
-                    } else if (nimMid < cari) {
-                        left = mid + 1;
-                    } else {
-                        right = mid - 1;
+                        if (nimMid == cari) {
+                            pinjam[mid].tampilPeminjaman();
+                            ketemu = true;
+                            break;
+                        } else if (nimMid < cari) {
+                            left = mid + 1;
+                        } else {
+                            right = mid - 1;
+                        }
                     }
-                }
 
-                if (!ketemu) {
-                    System.out.println("Data tidak ditemukan!");
-                }
-                break;
+                    if (!ketemu) {
+                        System.out.println("Data tidak ditemukan!");
+                    }
+                    break;
+
+                case 5 :
+                    int total = 0;
+                    for (int i = 0 ; i < pinjam.length ; i++) {
+                        total += pinjam[i].lamaPinjam;
+                    }
+
+                    int rata = total/pinjam.length;
+
+                    System.out.println("Rata - rata lama peminjaman = "+rata+" hari");
             }
-        } while (pilih != 5);
+        } while (pilih != 6);
     }
 }
